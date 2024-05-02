@@ -6,20 +6,20 @@
 #    By: msbai <msbai@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/22 18:30:22 by msbai             #+#    #+#              #
-#    Updated: 2024/04/23 02:53:25 by msbai            ###   ########.fr        #
+#    Updated: 2024/05/02 10:05:35 by msbai            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CC = cc
-CFLAGS = -Wall -Wextra -Werror
-
+CC = cc 
+CFLAGS = -Wall -Wextra -Werror 
+BONUS = fractal_bonus
 NAME = fractal
 
-SUR = main.c julia.c mandelbrot.c tools.c\
-		tools1.c
-
+SUR = mandatory/main.c mandatory/julia.c mandatory/mandelbrot.c mandatory/tools.c\
+		mandatory/tools1.c mandatory/ft_putnbr.c mandatory/event.c mandatory/ft_atdo.c
+BON = bonus/event.c  bonus/ft_putnbr.c  bonus/main.c  bonus/bonus.c  bonus/tools1.c  bonus/tools.c
 OBJ = $(SUR:.c=.o)
-
+OBJB = $(BON:.c=.o)
 all: $(NAME)
 
 
@@ -29,11 +29,13 @@ $(NAME): $(OBJ)
 %.o: %.c
 	$(CC) -Wall -Wextra -Werror -I/usr/include -Imlx_linux -O3 -c $< -o $@
 
+bonus: $(OBJB)
+	$(CC) $(OBJB) -Lmlx_linux -lmlx_Linux  -Imlx_linux -lXext -lX11 -lm -lz -o $(BONUS)
 clean:
-	@rm -rf $(OBJ)
+	@rm -rf $(OBJ) $(OBJB)
 
 fclean: clean
-	@rm -rf $(NAME)
+	@rm -rf $(NAME) $(BONUS)
 re: fclean all 
 
 .PHONY: all re fclean clean

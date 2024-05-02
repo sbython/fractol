@@ -6,7 +6,7 @@
 /*   By: msbai <msbai@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 19:08:47 by msbai             #+#    #+#             */
-/*   Updated: 2024/04/23 04:35:56 by msbai            ###   ########.fr       */
+/*   Updated: 2024/05/02 09:30:30 by msbai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,11 @@ size_t ft_strlen(char * str)
 }
 int ft_putstr(char *str , int fd)
 {
-    write(fd, str, ft_strlen(str));
-    return ft_strlen(str);
+    return write(fd, str, ft_strlen(str));
 }
-double map (double min, double max, double maxwh, double p, control con)
+double map (double min, double max, double maxwh, double p)
 {
-    return ((((p* (max - min)) / maxwh )+ min ) * con.zoom);
+    return (((p* (max - min)) / maxwh )+ min );
 }
 
 void	put_c_img(t_win *data, int x, int y, int color)

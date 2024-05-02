@@ -1,35 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   tools1.c                                           :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msbai <msbai@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/23 02:53:35 by msbai             #+#    #+#             */
-/*   Updated: 2024/04/24 08:19:26 by msbai            ###   ########.fr       */
+/*   Created: 2024/04/29 02:35:02 by msbai             #+#    #+#             */
+/*   Updated: 2024/05/02 09:29:47 by msbai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-t_comp sumcop(t_comp z,  t_comp c)
-{
-    t_comp r;
 
-    r.i = z.i + c.i;
-    r.r = z.r + c.r;
-    return (r);
-}
-t_comp power2(t_comp z)
+int ft_putchr (int c)
 {
-    t_comp r;
+    return write(1,&c,1);
+}
+void	ft_putnbr(int n)
+{
+	long nb;
 
-    r.i = 2 * z.i * z.r;
-    r.r =  z.r * z.r - z.i * z.i;
-    return (r);
-}
-int	key_hook(int keycode, t_win *win)
-{
-    (void) win;
-    return keycode;
+    nb = n;
+    if (nb < 0)
+    {
+        nb = -nb;
+        ft_putchr('-');
+    }
+    if(nb > 9)
+    {
+       ft_putnbr(nb / 10);
+       ft_putnbr(nb % 10); 
+    }
+    else 
+        ft_putchr('0' + nb);
 }
