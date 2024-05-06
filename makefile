@@ -6,7 +6,7 @@
 #    By: msbai <msbai@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/22 18:30:22 by msbai             #+#    #+#              #
-#    Updated: 2024/05/02 10:05:35 by msbai            ###   ########.fr        #
+#    Updated: 2024/05/06 21:36:24 by msbai            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ NAME = fractal
 
 SUR = mandatory/main.c mandatory/julia.c mandatory/mandelbrot.c mandatory/tools.c\
 		mandatory/tools1.c mandatory/ft_putnbr.c mandatory/event.c mandatory/ft_atdo.c
-BON = bonus/event.c  bonus/ft_putnbr.c  bonus/main.c  bonus/bonus.c  bonus/tools1.c  bonus/tools.c
+BON = bonus/event.c   bonus/main.c  bonus/bonus.c  bonus/tools1.c  bonus/tools.c
 OBJ = $(SUR:.c=.o)
 OBJB = $(BON:.c=.o)
 all: $(NAME)
@@ -38,4 +38,4 @@ fclean: clean
 	@rm -rf $(NAME) $(BONUS)
 re: fclean all 
 
-.PHONY: all re fclean clean
+.PHONY: all re fclean clean 
